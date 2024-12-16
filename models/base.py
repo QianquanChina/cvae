@@ -8,10 +8,10 @@ class BaseVae(nn.Module):
     def __int__(self) -> None:
         super(BaseVae, self).__init__()
 
-    def encode(self, input_data: Tensor, label_embed) -> List[Tensor]:
+    def encode(self, input_data: Tensor, data_label: Tensor) -> List[Tensor]:
         raise NotImplementedError
 
-    def decode(self, input_data: Tensor, label_embed) -> Any:
+    def decode(self, input_data: Tensor, data_label: Tensor) -> Any:
         raise NotImplementedError
 
     def sample(self, batch_size: int, current_device: int, **kwargs) -> Tensor:

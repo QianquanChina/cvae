@@ -67,7 +67,7 @@ class CVae(BaseVae):
 
         return [mu, log_var]
 
-    def decode(self, input_data: Tensor, data_label) -> Tensor:
+    def decode(self, input_data: Tensor, data_label: Tensor) -> Tensor:
         label_embed = self.condition(data_label)
         input_data = torch.cat([input_data, label_embed], dim=1)
         result = self.decoder_input(input_data)
